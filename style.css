@@ -219,12 +219,15 @@ a.topbar__item:hover{ color: var(--gold-light); }
 }
 .hero__title{
   font-size: clamp(2.4rem, 6vw, 4.2rem);
-  font-weight: 900;
-  line-height: 1.15;
+  font-family: "Aref Ruqaa Ink", "Traditional Arabic", serif;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: .01em;
   background: linear-gradient(180deg, var(--gold-light), var(--gold) 65%, var(--gold-deep));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  text-shadow: 0 10px 28px rgba(201,151,63,.16);
 }
 .hero__desc{
   margin-top: 22px;
