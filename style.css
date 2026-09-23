@@ -355,7 +355,10 @@ a.topbar__item:hover{ color: var(--gold-light); }
   font-size: clamp(1.6rem, 3.4vw, 2.3rem);
   font-weight: 400;
   line-height: 1.4;
-  color: var(--gold);
+  background: linear-gradient(180deg, #f8df9b 0%, #d9aa4d 58%, #b27a25 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 .section-head h2::after{
   content:"";
