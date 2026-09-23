@@ -280,6 +280,47 @@
     });
   });
 
+  /* ---------------- Scroll polish ---------------- */
+  const revealElements = document.querySelectorAll(
+    ".section-head, .menu-section, .contact__inner, .site-footer"
+  );
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.12 }
+  );
+
+  revealElements.forEach((element) => {
+    element.classList.add("reveal-on-scroll");
+    revealObserver.observe(element);
+  });
+
+  const sectionLinks = [...mainNav.querySelectorAll(".nav-link")];
+  const trackedSections = sectionLinks
+    .map((link) => document.querySelector(link.getAttribute("href")))
+    .filter(Boolean);
+  const navObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        sectionLinks.forEach((link) => {
+          link.classList.toggle(
+            "is-current",
+            link.getAttribute("href") === `#${entry.target.id}`
+          );
+        });
+      });
+    },
+    { rootMargin: "-35% 0px -55% 0px" }
+  );
+
+  trackedSections.forEach((section) => navObserver.observe(section));
+
   /* ---------------- Init ---------------- */
   initMenu();
   renderCart();
