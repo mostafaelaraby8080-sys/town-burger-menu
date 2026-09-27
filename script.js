@@ -64,7 +64,7 @@
                   data-name="${item.name}"
                   data-size="${s.label}"
                   data-price="${s.price}">
-                  ${s.label} · ${money(s.price)} <span class="size-btn__unit">ج.م</span>
+                  ${s.label} ${money(s.price)} <span class="size-btn__unit">ج.م</span>
                 </button>`;
             })
             .join("")}
